@@ -1,0 +1,21 @@
+body {
+  background:url('ecocruiseoil-pic.jpg') #848484 no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+div {
+    height: 10%;
+    width: 30%;
+    background: none;
+    color: #848484;
+
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+

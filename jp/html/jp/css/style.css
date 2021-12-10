@@ -1,0 +1,885 @@
+@charset "UTF-8";
+/* 共通 */
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+html {
+  color: #333;
+  font-family: Helvetica, "メイリオ", "Yu Gothic", sans-serif;
+  font-size: 62.5%; }
+
+img, iframe {
+  vertical-align: bottom; }
+
+a {
+  outline: none; }
+
+/* スニペット */
+.wrapper {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1040px; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.alignc {
+  text-align: center; }
+
+.clear {
+  clear: both; }
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.gold {
+  color: #a28a68; }
+
+.appear-wrapper,
+.appear-content,
+.delay-content,
+.delay-content-left,
+.delay-content-right {
+  position: relative; }
+
+@media screen and (min-width: 993px) {
+  .pc-none {
+    display: none; } }
+
+@media screen and (min-width: 768px) and (max-width: 993px) {
+  .tab-none {
+    display: none; } }
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 0 5%; }
+  .sp-none {
+    display: none; } }
+
+/* フロートバー */
+.float-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  border-bottom: solid 1px #000;
+  height: 65px;
+  background: rgba(0, 0, 0, 0.8);
+  font-family: "Sawarabi Mincho", serif; }
+  .float-bar .wrapper {
+    display: table;
+    width: 100%; }
+    .float-bar .wrapper .logo, .float-bar .wrapper .gnav {
+      display: table-cell; }
+    .float-bar .wrapper .logo {
+      width: 103px;
+      vertical-align: middle; }
+      .float-bar .wrapper .logo a {
+        transition: opacity .4s; }
+      .float-bar .wrapper .logo a:hover {
+        opacity: .8; }
+    .float-bar .wrapper .gnav .links {
+      float: right; }
+      .float-bar .wrapper .gnav .links li {
+        float: left;
+        font-size: 1.55rem;
+        letter-spacing: .1em; }
+        .float-bar .wrapper .gnav .links li a {
+          display: inline-block;
+          padding: 25px 15px;
+          color: #fff;
+          text-decoration: none;
+          transition: color .4s; }
+          .float-bar .wrapper .gnav .links li a:hover {
+            color: #9fc1ff; }
+    .float-bar .wrapper .hbg-btn {
+      cursor: pointer;
+      float: right;
+      display: none;
+      padding: 19px 0;
+      color: #fff;
+      font-size: 2.7rem; }
+
+.round-buy-btn {
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  z-index: 9999;
+  display: block;
+  padding-top: 15px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background: url(../images/arrow.gif) no-repeat center bottom 20px, #e4713b;
+  color: #fff;
+  font-size: 1.7rem;
+  font-family: "Sawarabi Mincho", serif;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: opacity .4s; }
+  .round-buy-btn:hover {
+    opacity: .8; }
+
+.facebook-btn {
+  position: fixed;
+  top: 270px;
+  right: 50px;
+  z-index: 9999;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background: #3b5998;
+  color: #fff;
+  font-size: 6.6rem;
+  font-weight: bold;
+  line-height: 150px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: opacity .4s; }
+  .facebook-btn:hover {
+    opacity: .8; }
+
+@media screen and (max-width: 992px) {
+  .float-bar .wrapper .gnav .links li {
+    font-size: 1.4rem; }
+    .float-bar .wrapper .gnav .links li a {
+      padding: 26px 7px; }
+  .round-buy-btn {
+    top: 90px;
+    right: 30px;
+    padding-top: 10px;
+    width: 120px;
+    height: 120px;
+    background-position: center bottom 15px;
+    font-size: 1.4rem; }
+  .facebook-btn {
+    top: 230px;
+    right: 30px;
+    width: 120px;
+    height: 120px;
+    line-height: 120px; } }
+
+@media screen and (max-width: 767px) {
+  .float-bar .wrapper .logo {
+    padding-top: 10px;
+    vertical-align: top; }
+  .float-bar .wrapper .gnav {
+    position: absolute;
+    top: 65px;
+    right: -180px;
+    border-left: solid 1px #dedede;
+    width: 180px;
+    height: calc(100vh - 65px);
+    background: rgba(255, 255, 255, 0.9); }
+    .float-bar .wrapper .gnav .links {
+      width: 100%; }
+      .float-bar .wrapper .gnav .links li {
+        float: none;
+        font-size: 1.45rem; }
+        .float-bar .wrapper .gnav .links li a {
+          padding: 20px 0 20px 1.5em;
+          border-bottom: solid 1px #dedede;
+          width: 100%;
+          color: #333; }
+          .float-bar .wrapper .gnav .links li a:hover {
+            color: inherit; }
+  .float-bar .wrapper .hbg-btn {
+    display: block; }
+  .round-buy-btn, .facebook-btn {
+    display: none; } }
+
+/* メインビジュアル */
+.main-visual {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Sawarabi Mincho", serif;
+  text-align: center; }
+  .main-visual .mv-text {
+    position: relative;
+    z-index: 20;
+    display: table-cell;
+    vertical-align: middle;
+    text-shadow: 0 0 8px #000; }
+    .main-visual .mv-text .logo {
+      padding-bottom: 35px; }
+    .main-visual .mv-text .catchcopy {
+      padding-bottom: 30px;
+      font-size: 3.6rem;
+      line-height: 1.4;
+      letter-spacing: .075em; }
+    .main-visual .mv-text .purpose {
+      padding: 0 7%;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      letter-spacing: .075em; }
+  .main-visual .mv-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background: url(../images/bg-folded.png) no-repeat center bottom, url(../images/bg-overlay.png) repeat; }
+  .main-visual .scroll-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 20;
+    display: inline-block;
+    margin-left: -32.86px;
+    padding: 0 .5em;
+    font-size: 4rem;
+    color: #fff; }
+
+@media screen and (max-width: 767px) {
+  .main-visual .mv-text .logo {
+    padding-bottom: 20px; }
+    .main-visual .mv-text .logo img {
+      width: 60%; }
+  .main-visual .mv-text .catchcopy {
+    padding: 0 7% 30px;
+    font-size: 2.7rem; } }
+
+/* 見出し */
+.heading {
+  font-family: "Sawarabi Mincho", serif; }
+  .heading .title-jp {
+    font-size: 3.7rem;
+    letter-spacing: .05em; }
+  .heading .title-en {
+    font-size: 1.5rem;
+    letter-spacing: .075em;
+    line-height: 1.5;
+    color: #9ea2a6; }
+
+.heading-center {
+  text-align: center; }
+  .heading-center .title-jp {
+    padding-bottom: 18px;
+    line-height: 1.4; }
+  .heading-center .title-jp::after {
+    content: '';
+    display: block;
+    margin: 13px auto 0;
+    width: 38px;
+    height: 2px;
+    background: #a28a68; }
+
+.heading-left .title-jp {
+  padding-left: 10px;
+  border-left: solid 2px; }
+
+.heading-left .title-en {
+  padding-top: 15px;
+  padding-left: 12px; }
+
+@media screen and (max-width: 992px) {
+  .heading .title-jp {
+    font-size: 3.3rem; } }
+
+@media screen and (max-width: 767px) {
+  .heading .title-jp {
+    font-size: 3rem; } }
+
+/* おすすめの理由 */
+.reasons {
+  padding: 90px 0 50px;
+  background: url(../images/reasons/reasons-bg.jpg) no-repeat center bottom;
+  background-size: cover; }
+  .reasons .left, .reasons .right {
+    width: 50%; }
+  .reasons .heading {
+    padding-bottom: 65px; }
+  .reasons .reason-box {
+    padding-bottom: 90px; }
+  .reasons .reason-img {
+    max-width: 450px; }
+    .reasons .reason-img img {
+      width: 100%; }
+  .reasons .reason-title {
+    padding-bottom: 20px;
+    font-size: 3rem;
+    font-family: "Sawarabi Mincho", serif;
+    line-height: 1.4; }
+  .reasons .reason-text {
+    font-size: 1.6rem;
+    line-height: 2; }
+
+@media screen and (max-width: 992px) {
+  .reasons .reason-title {
+    font-size: 2.8rem; }
+  .reasons .reason-img.left {
+    padding-right: 30px; }
+  .reasons .reason-img.right {
+    padding-left: 30px; } }
+
+@media screen and (max-width: 767px) {
+  .reasons {
+    padding: 70px 0 120px;
+    background-size: contain; }
+    .reasons .left, .reasons .right {
+      width: 100%; }
+    .reasons .heading {
+      padding-bottom: 60px; }
+    .reasons .reason-box {
+      padding-bottom: 70px; }
+      .reasons .reason-box:last-child {
+        padding-bottom: 0; }
+    .reasons .reason-img {
+      padding-bottom: 20px;
+      max-width: none; }
+      .reasons .reason-img::before {
+        content: attr(data-title);
+        display: block;
+        padding-bottom: 20px;
+        font-size: 2.5rem;
+        font-family: "Sawarabi Mincho", serif;
+        line-height: 1.4; }
+      .reasons .reason-img.left, .reasons .reason-img.right {
+        padding-right: 0;
+        padding-left: 0; }
+    .reasons .reason-title {
+      display: none; } }
+
+/* 製品ラインナップ */
+.products {
+  padding-top: 120px;
+  background: url(../images/products/products-bg.jpg) no-repeat center top 30%, #1b2026;
+  background-size: contain;
+  color: #fff;
+  text-align: center; }
+  .products .products-wrapper {
+    padding-top: 60px; }
+    .products .products-wrapper .product-box {
+      float: left;
+      padding-bottom: 90px;
+      width: calc(100%/3); }
+      .products .products-wrapper .product-box:nth-last-child(-n+2) {
+        padding-bottom: 60px; }
+      .products .products-wrapper .product-box .product-img {
+        padding-bottom: 30px; }
+      .products .products-wrapper .product-box .product-desc {
+        display: inline-block;
+        padding: 0 10px;
+        width: 100%;
+        max-width: 280px;
+        font-size: 1.5rem;
+        line-height: 2; }
+        .products .products-wrapper .product-box .product-desc.coming-soon .product-text {
+          text-align: center; }
+      .products .products-wrapper .product-box .product-title {
+        padding-bottom: .5em;
+        font-size: 2.3rem;
+        font-weight: bold;
+        line-height: 1; }
+      .products .products-wrapper .product-box .product-list {
+        list-style-type: disc;
+        margin-left: 1.5em;
+        padding: 0 0 0.7em;
+        font-size: 1.4rem;
+        text-align: left; }
+      .products .products-wrapper .product-box .product-text {
+        text-align: left; }
+  .products .buy-btn {
+    display: inline-block;
+    margin-bottom: 80px;
+    padding: 20px 60px;
+    border-radius: 3px;
+    font-size: 1.6rem;
+    background: #e4713b;
+    color: #fff;
+    line-height: 1.6;
+    text-decoration: none;
+    transition: opacity .4s; }
+    .products .buy-btn:hover {
+      opacity: .8; }
+  .products .usage {
+    margin: 0 auto;
+    padding-bottom: 120px;
+    max-width: 720px; }
+    .products .usage table {
+      width: 100%;
+      color: #9ea2a6; }
+      .products .usage table th {
+        white-space: nowrap;
+        padding-bottom: 15px;
+        border-bottom: solid 1px #323232;
+        font-size: 1.6rem;
+        font-family: "Sawarabi Mincho", serif;
+        text-align: left; }
+      .products .usage table td {
+        padding-top: 20px;
+        padding-bottom: 15px;
+        border-bottom: solid 1px #323232;
+        font-size: 1.3rem;
+        text-align: left;
+        line-height: 2; }
+      .products .usage table tr:last-child th, .products .usage table tr:last-child td {
+        border: none; }
+
+@media screen and (max-width: 767px) {
+  .products {
+    padding-top: 90px;
+    background-position: bottom; }
+    .products .products-wrapper {
+      padding-top: 60px; }
+      .products .products-wrapper .product-box {
+        padding-bottom: 80px;
+        width: 100%; }
+        .products .products-wrapper .product-box .product-img {
+          width: 100%; }
+          .products .products-wrapper .product-box .product-img img {
+            width: 50%; }
+        .products .products-wrapper .product-box .product-desc {
+          padding: 0;
+          max-width: none; }
+    .products .buy-btn {
+      width: 100%; }
+    .products .usage {
+      padding-bottom: 85px; }
+      .products .usage table th {
+        display: block;
+        padding-top: 15px;
+        border: none; }
+      .products .usage table td {
+        display: block;
+        padding-top: 0; } }
+
+/* 製造工程 */
+.process {
+  padding: 120px 0;
+  background: url(../images/process/process-bg.jpg) no-repeat bottom left; }
+  .process .heading {
+    padding-bottom: 60px; }
+  .process .process-box:nth-child(1) .process-img {
+    background: url(../images/process/process1.jpg) no-repeat center center;
+    background-size: cover; }
+  .process .process-box:nth-child(1) .process-title::before {
+    content: "1";
+    display: inline-block;
+    margin-right: .4em;
+    color: #a28a68; }
+  .process .process-box:nth-child(2) .process-img {
+    background: url(../images/process/process2.jpg) no-repeat center center;
+    background-size: cover; }
+  .process .process-box:nth-child(2) .process-title::before {
+    content: "2";
+    display: inline-block;
+    margin-right: .4em;
+    color: #a28a68; }
+  .process .process-box:nth-child(3) .process-img {
+    background: url(../images/process/process3.jpg) no-repeat center center;
+    background-size: cover; }
+  .process .process-box:nth-child(3) .process-title::before {
+    content: "3";
+    display: inline-block;
+    margin-right: .4em;
+    color: #a28a68; }
+  .process .process-box:nth-child(4) .process-img {
+    background: url(../images/process/process4.jpg) no-repeat center center;
+    background-size: cover; }
+  .process .process-box:nth-child(4) .process-title::before {
+    content: "4";
+    display: inline-block;
+    margin-right: .4em;
+    color: #a28a68; }
+  .process .process-box:nth-child(5) .process-img {
+    background: url(../images/process/process5.jpg) no-repeat center center;
+    background-size: cover; }
+  .process .process-box:nth-child(5) .process-title::before {
+    content: "5";
+    display: inline-block;
+    margin-right: .4em;
+    color: #a28a68; }
+  .process .process-box .left, .process .process-box .right {
+    width: 50%; }
+  .process .process-box .process-desc {
+    padding: 45px 60px 0;
+    min-height: 300px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); }
+  .process .process-box .process-title {
+    padding-bottom: 20px;
+    font-size: 3rem;
+    font-family: "Sawarabi Mincho", serif;
+    line-height: 1.4; }
+  .process .process-box .process-text {
+    font-size: 1.6rem;
+    line-height: 1.9; }
+
+@media screen and (max-width: 992px) {
+  .process .process-box .process-desc {
+    padding: 30px 40px 0;
+    min-height: 320px; } }
+
+@media screen and (max-width: 767px) {
+  .process {
+    padding: 90px 0; }
+    .process .process-box {
+      padding-bottom: 70px; }
+      .process .process-box:last-child {
+        padding-bottom: 0; }
+      .process .process-box .process-title {
+        padding-bottom: 20px;
+        font-size: 2.6rem; }
+      .process .process-box .process-desc {
+        float: none;
+        padding: 35px 0 0;
+        width: 100%;
+        min-height: 0; }
+    .process .process-img {
+      float: none;
+      margin: 0 auto;
+      min-height: 180px; }
+      .process .process-img.left, .process .process-img.right {
+        width: 70%; } }
+
+/* 販売企業 */
+.sellers {
+  padding: 120px 0;
+  background: url(../images/sellers/sellers-bg.jpg) no-repeat center bottom, #242930;
+  background-size: contain;
+  color: #fff;
+  text-align: center; }
+  .sellers .left, .sellers .right {
+    width: 50%; }
+  .sellers .left {
+    padding-right: 10px; }
+  .sellers .right {
+    padding-left: 10px; }
+  .sellers .heading {
+    padding-bottom: 60px; }
+  .sellers .seller-box {
+    max-width: 480px; }
+  .sellers .seller-company {
+    padding-bottom: 25px;
+    font-size: 2.5rem;
+    font-family: "Sawarabi Mincho", serif;
+    letter-spacing: .1em; }
+  .sellers .seller-details {
+    padding-bottom: 35px;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    letter-spacing: .1em; }
+  .sellers .map {
+    display: block;
+    margin-bottom: 40px; }
+  .sellers .map-btn {
+    display: inline-block;
+    padding: 15px 55px;
+    border: solid 1px #46494a;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: .05em;
+    transition: background .4s; }
+    .sellers .map-btn:hover {
+      background: #000; }
+
+@media screen and (max-width: 767px) {
+  .sellers {
+    padding: 90px 0 120px; }
+    .sellers .seller-box {
+      padding-bottom: 70px;
+      width: 100%;
+      max-width: none; }
+      .sellers .seller-box.left {
+        padding-right: 0; }
+      .sellers .seller-box.right {
+        padding-left: 0;
+        padding-bottom: 0; } }
+
+/* お問い合わせ */
+.inquiry {
+  padding: 120px 0;
+  background: #f1f1f1; }
+  .inquiry .left {
+    padding-right: 40px;
+    width: 40%; }
+  .inquiry .right {
+    width: 60%; }
+  .inquiry .title-jp {
+    border-color: #a28a68; }
+  .inquiry-text {
+    padding-top: 35px;
+    padding-left: 12px;
+    font-size: 1.6rem;
+    line-height: 2; }
+  .inquiry-ways {
+    padding-top: 40px;
+    padding-left: 12px; }
+    .inquiry-ways li {
+      position: relative;
+      padding-bottom: 17px;
+      padding-left: 1.8em;
+      font-size: 1.5rem;
+      line-height: 1.5; }
+      .inquiry-ways li::before {
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        font-family: FontAwesome; }
+      .inquiry-ways li.inquiry-email::before {
+        content: "\f0e0"; }
+      .inquiry-ways li.inquiry-tel::before {
+        content: "\f095"; }
+      .inquiry-ways li.inquiry-address::before {
+        content: "\f1ad"; }
+  .inquiry .submit-desc {
+    font-size: 1.4rem;
+    padding-top: 27px; }
+    .inquiry .submit-desc a {
+      color: #e4713b; }
+      .inquiry .submit-desc a:hover {
+        text-decoration: none; }
+  .inquiry #mailformpro table {
+    width: 100%; }
+  .inquiry #mailformpro .form-head .form-label:nth-child(2) {
+    padding-left: 1.5%; }
+  .inquiry #mailformpro .form-label {
+    padding-bottom: 15px;
+    width: 50%;
+    font-size: 1.5rem;
+    text-align: left; }
+    .inquiry #mailformpro .form-label label {
+      margin: 0; }
+  .inquiry #mailformpro .form-input {
+    padding-bottom: 25px;
+    vertical-align: top; }
+    .inquiry #mailformpro .form-input:nth-child(2) {
+      text-align: right; }
+  .inquiry #mailformpro select,
+  .inquiry #mailformpro option,
+  .inquiry #mailformpro input[type='text'],
+  .inquiry #mailformpro input[type='email'],
+  .inquiry #mailformpro input[type='tel'],
+  .inquiry #mailformpro textarea {
+    width: 97%;
+    height: 2.5em;
+    max-width: 100%;
+    margin: 0;
+    padding: 8px 13px;
+    border: solid 1px #8d8d8d;
+    border-radius: 0;
+    font-size: 1.8rem;
+    font-family: Helvetica, "メイリオ", "Yu Gothic", sans-serif; }
+  .inquiry #mailformpro textarea {
+    min-width: 100%;
+    min-height: 120px; }
+  .inquiry #mailformpro .submit-btn {
+    cursor: pointer;
+    margin-top: 27px;
+    padding: 15px 0;
+    border: none;
+    border-radius: 3px;
+    min-width: 100%;
+    background: #e4713b;
+    color: #fff;
+    font-size: 1.6rem;
+    text-shadow: none;
+    transition: opacity .4s; }
+  .inquiry #mailformpro .submit-btn:hover {
+    opacity: .8; }
+
+@media screen and (max-width: 767px) {
+  .inquiry {
+    padding: 90px 0; }
+    .inquiry .left, .inquiry .right {
+      width: 100%; }
+    .inquiry .left {
+      padding-right: 0; }
+    .inquiry-ways {
+      padding-top: 30px;
+      padding-bottom: 20px; }
+      .inquiry-ways li {
+        padding-bottom: 12px; }
+    .inquiry #mailformpro .left, .inquiry #mailformpro .right {
+      width: 100%; }
+    .inquiry #mailformpro select,
+    .inquiry #mailformpro option,
+    .inquiry #mailformpro input[type='text'],
+    .inquiry #mailformpro input[type='email'],
+    .inquiry #mailformpro input[type='tel'],
+    .inquiry #mailformpro textarea {
+      width: 100%; }
+    .inquiry .form-input {
+      display: block; }
+      .inquiry .form-input::before {
+        content: attr(data-label);
+        display: block;
+        padding-bottom: 15px;
+        text-align: left;
+        font-size: 1.4rem; } }
+
+/* 会社概要 */
+.company {
+  padding: 120px 0;
+  background: url(../images/company/company-bg.jpg) no-repeat center;
+  background-size: cover;
+  color: #fff; }
+  .company .heading {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); }
+    .company .heading .title-en {
+      color: #fff; }
+  .company .heading-center .title-jp::after {
+    background: #fff; }
+  .company-detail {
+    max-width: 600px;
+    margin: 70px auto 50px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.35); }
+    .company-detail table {
+      width: 100%; }
+      .company-detail table th {
+        padding-bottom: 15px;
+        font-size: 1.9rem;
+        font-family: "Sawarabi Mincho", serif;
+        text-align: left;
+        letter-spacing: .075em; }
+      .company-detail table td {
+        padding-bottom: 35px;
+        width: 50%;
+        font-size: 1.6rem;
+        letter-spacing: .05em;
+        line-height: 1.5; }
+      .company-detail table tr:last-child td {
+        padding-bottom: 0; }
+    .company-detail .business-list li {
+      padding-bottom: .8em;
+      padding-left: .4em;
+      vertical-align: middle; }
+      .company-detail .business-list li a {
+        color: #fff; }
+        .company-detail .business-list li a:hover {
+          text-decoration: none; }
+      .company-detail .business-list li::before {
+        content: "■";
+        color: #a28a68;
+        font-size: 1.2rem;
+        font-family: FontAwesome;
+        margin-right: 0.5em; }
+      .company-detail .business-list li:last-child {
+        padding-bottom: 0; }
+  .company .facebook-wrapper {
+    width: 100%;
+    text-align: center; }
+    .company .facebook-wrapper .facebook-border {
+      margin: 0 auto;
+      max-width: 500px;
+      padding: 21px;
+      background: #3b5998;
+      border-radius: 4px; }
+
+@media screen and (max-width: 767px) {
+  .company {
+    padding: 90px 0;
+    background: url(../images/company/company-bg_sp.jpg) no-repeat center;
+    background-size: cover; }
+    .company-detail {
+      padding: 5%; }
+    .company table td::before {
+      content: attr(data-title);
+      display: block;
+      padding-bottom: 12px;
+      font-size: 1.8rem;
+      font-family: "Sawarabi Mincho", serif;
+      text-align: left;
+      letter-spacing: .075em; } }
+
+/* サンクス */
+.thanks .float-bar {
+  position: static; }
+  .thanks .float-bar .wrapper .logo {
+    height: 65px; }
+
+.thanks .content {
+  padding: 120px 0;
+  text-align: center; }
+
+.thanks .heading {
+  padding-bottom: 60px; }
+
+.thanks-text {
+  padding-bottom: 40px;
+  font-size: 1.6rem;
+  line-height: 1.6; }
+
+.thanks .index-btn {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 20px 60px;
+  border-radius: 3px;
+  background: #e4713b;
+  color: #fff;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: opacity .4s; }
+  .thanks .index-btn:hover {
+    opacity: .8; }
+
+/* フッター */
+.footer {
+  background: #263037;
+  color: #fff; }
+  .footer .copyright {
+    text-align: center; }
+    .footer .copyright small {
+      display: inline-block;
+      padding: 15px 0;
+      font-size: 1.3rem;
+      font-family: "Sawarabi Mincho", serif; }
+  .footer .policy-wrapper {
+    padding-top: 70px;
+    font-size: 1.5rem;
+    color: #9ea2a6;
+    width: 80%;
+    margin: 0 auto; }
+    .footer .policy-wrapper .policy-heading {
+      padding-bottom: 1em;
+      font-size: 2.4rem;
+      font-family: "Sawarabi Mincho", serif; }
+    .footer .policy-wrapper .policy-desc {
+      padding-bottom: 30px;
+      line-height: 1.6; }
+    .footer .policy-wrapper .policy-list {
+      list-style-type: decimal; }
+      .footer .policy-wrapper .policy-list li {
+        float: left;
+        padding-bottom: 1em;
+        font-size: 1.3rem;
+        width: 47.5%;
+        line-height: 1.6; }
+        .footer .policy-wrapper .policy-list li:nth-child(even) {
+          float: right; }
+        .footer .policy-wrapper .policy-list li .policy-title {
+          padding-bottom: .5em; }
+
+@media screen and (max-width: 767px) {
+  .footer .policy-wrapper {
+    padding-top: 60px;
+    width: 90%; }
+    .footer .policy-wrapper .policy-list {
+      padding-left: 1em; }
+      .footer .policy-wrapper .policy-list li {
+        float: none;
+        width: 100%; } }
+
+/*# sourceMappingURL=style.css.map */
